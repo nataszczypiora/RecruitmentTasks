@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona z zadaniami rekrutacyjnymi</title>
+    <meta name="author" content="Iga Lukiewska">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="css/custom-style.css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.esm.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+    <select id="year-select-box" onchange="yearSelectBoxValueChanged()" style="margin: 30px 20px 40px 60px">
+        <option value="all">Sel <i class="fas fa-arrow-down"></i></option>
+        <option value="2019">Rok 2019</option>
+        <option value="2020">Rok 2020</option>
+    </select>
+    <table class="table table-bordered" id="task-table">
+        <tr>
+            <td style="width: 30px"><a>Lp</a></td>
+            <td style="width: auto"><a>Nagłówek</a></td>
+            <td style="width: 60px"><a>Data</a></td>
+        </tr>
+        <tr>
+            <td style="width: 30px"><a>1</a></td>
+            <td style="width: auto"><a>Content 1</a></td>
+            <td style="width: 60px"><a>20.02.2020</a></td>
+        </tr>
+        <tr>
+            <td style="width: 30px"><a>2</a></td>
+            <td style="width: auto"><a>Content 2</a></td>
+            <td style="width: 60px"><a>20.03.2020</a></td>
+        </tr>
+        <tr>
+            <td style="width: 30px"><a>3</a></td>
+            <td style="width: auto"><a>Content 3</a></td>
+            <td style="width: 60px"><a>03.03.2020</a></td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        let selectBox = document.getElementById("year-select-box")
+        let tableNode = document.getElementById("task-table")
+
+        function yearSelectBoxValueChanged(){
+            let selectedYear = selectBox.options[selectBox.selectedIndex].value
+            for(var i = 1, row; row=tableNode.rows[i];i++){
+                if(!row.cells[2].textContent.includes(selectedYear)) {
+                    row.style.visibility="hidden"
+                }
+                else {
+                    row.style.visibility="visible"
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
