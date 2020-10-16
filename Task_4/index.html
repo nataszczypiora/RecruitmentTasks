@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona z zadaniami rekrutacyjnymi</title>
+    <meta name="author" content="Iga Lukiewska">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="css/custom-style.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" >
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/bootstrap.esm.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+    <div class="container-xxl" style="align-content: center">
+        <table class="table table-borderless" id="chess"></table>
+    </div>
+    <script type="text/javascript">
+        let boardGrid = document.getElementById("chess")
+
+
+        function createGrid(){
+            for(var i = 0; i<5;i++){
+                let row = document.createElement("tr")
+                for(var j = 0;j<5;j++){
+                    let cel = document.createElement("td")
+                    if((i+j)%2==0){
+                        cel.style.background="black"
+                        cel.style.color="white"
+                    }
+                    else{
+                        cel.style.background="white"
+                        cel.style.color="black"
+                    }
+                    var cellContainer = document.createElement("div")
+                    cellContainer.className="align-self-center"
+                    cellContainer.style.top=parseInt(i*20)+"%"
+                    cellContainer.style.left=parseInt(j*20)+"%"
+                    var glyph = document.createElement("i")
+                    glyph.className="fas fa-clock"
+                    glyph.style.fontSize="4vw"
+                    glyph.style.paddingBottom="0px"
+                    var text = document.createElement("a")
+                    text.text="Tekst"
+                    text.style.fontSize="1vw"
+                    text.style.position="absolute"
+                    text.style.left="37%"
+                    text.style.top="60%"
+                    cellContainer.appendChild(glyph)
+                    cellContainer.appendChild(document.createElement("br"))
+                    cellContainer.appendChild(text)
+                    cel.appendChild(cellContainer)
+                    row.appendChild(cel)
+                }
+                boardGrid.appendChild(row)
+            }
+        }
+
+        createGrid()
+    </script>
+</body>
+</html>
